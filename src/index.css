@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #000000;
+  --color-surface: #0a0a0a;
+  --color-cream: #FFFFFF;
+  --color-cream-06: rgba(255, 255, 255, 0.06);
+  --color-cream-10: rgba(255, 255, 255, 0.10);
+  --color-cream-20: rgba(255, 255, 255, 0.20);
+  --color-cream-40: rgba(255, 255, 255, 0.40);
+  --color-cream-50: rgba(255, 255, 255, 0.50);
+  --color-crimson: #E50000;
+  --color-crimson-15: rgba(229, 0, 0, 0.15);
+  --color-crimson-30: rgba(229, 0, 0, 0.30);
+  --color-gold: #FFCC00;
+
+  --font-sans: "Oswald", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-cormorant: "Cormorant", serif;
+  --font-accent: "Space Grotesk", sans-serif;
+  --font-chunky: "Anton", sans-serif;
+
+  --fs-hero: clamp(4rem, 12vw, 12rem);
+  --fs-h1: clamp(3rem, 8vw, 8rem);
+  --fs-h2: clamp(2rem, 5vw, 5rem);
+  --fs-body: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-void);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .liquid-metal-btn {
+    background: linear-gradient(145deg, #3a3a3a, #1a1a1a);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.2), 0 4px 15px rgba(0,0,0,0.5);
+    color: var(--color-cream);
+    border: 1px solid #111;
+    border-radius: 2px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    transition: all 0.3s ease;
+  }
+  
+  .liquid-metal-btn:hover {
+    background: linear-gradient(145deg, var(--color-crimson), #800000);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), 0 4px 20px rgba(229, 0, 0, 0.4);
+    border: 1px solid var(--color-crimson);
+  }
+
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+  }
+  .clip-diagonal-top {
+    clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+  }
+  .clip-diagonal-top-reverse {
+    clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A registered user of the application.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "maxLength": 254 },
+        "name": { "type": "string", "maxLength": 100 },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["email", "createdAt"]
+    },
+    "Favorite": {
+      "title": "Favorite",
+      "description": "A favorite menu item saved by a user.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "itemId": { "type": "string", "maxLength": 100 },
+        "itemType": { "type": "string", "maxLength": 50, "enum": ["BURGER", "BROAST", "DEAL"] },
+        "createdAt": { "type": "timestamp" }
+      },
+      "required": ["userId", "itemId", "itemType", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles. Keyed by Firebase Auth UID."
+    },
+    "favorites/{favoriteId}": {
+      "schema": "Favorite",
+      "description": "User favorite items."
+    }
+  }
+}
